@@ -1,9 +1,8 @@
 Blockly.Blocks['import_python'] = {
     init: function() {
       this.appendValueInput("import_value")
-          .setCheck("String");
-      this.appendDummyInput()
-          .appendField("をインポートする");
+          .setCheck("String")
+          .appendField("import");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
       this.setNextStatement(true, null);
