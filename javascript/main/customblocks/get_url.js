@@ -1,28 +1,10 @@
-Blockly.Blocks['import_python'] = {
+Blockly.Blocks['get_url'] = {
     init: function() {
-      this.appendValueInput("import_value")
+      this.appendValueInput("url")
           .setCheck(null)
-          .appendField("import");
+          .appendField("get this url");
       this.setInputsInline(true);
       this.setPreviousStatement(true, null);
-      this.setNextStatement(true, null);
-      this.setColour(200);
-   this.setTooltip("");
-   this.setHelpUrl("");
-    }
-};
-
-Blockly.Python['import_python'] = function(block) {
-    var value_import_value = Blockly.Python.valueToCode(block, 'import_value', Blockly.Python.ORDER_ATOMIC);
-    // TODO: Assemble JavaScript into code variable.
-    var code = 'import' + value_import_value;
-    return code;
-};
-
-Blockly.Blocks['import_selenium'] = {
-    init: function() {
-      this.appendDummyInput()
-          .appendField("Import webdriver from selenium");
       this.setNextStatement(true, null);
       this.setColour(230);
    this.setTooltip("");
@@ -30,8 +12,27 @@ Blockly.Blocks['import_selenium'] = {
     }
 };
 
-Blockly.Python['import_selenium'] = function(block) {
+Blockly.Python['get_url'] = function(block) {
+    var value_url = Blockly.Python.valueToCode(block, 'url', Blockly.Python.ORDER_ATOMIC);
     // TODO: Assemble JavaScript into code variable.
-    var code = 'from selenium import webdriver';
+    var code = 'browser.get(' + value_url + ")";
+    return code;
+};
+
+Blockly.Blocks['close_browser'] = {
+    init: function() {
+      this.appendDummyInput()
+          .appendField("Close browser");
+      this.setPreviousStatement(true, null);
+      this.setNextStatement(true, null);
+      this.setColour(230);
+   this.setTooltip("");
+   this.setHelpUrl("");
+    }
+};
+
+Blockly.Python['close_browser'] = function(block) {
+    // TODO: Assemble JavaScript into code variable.
+    var code = 'browser.close()';
     return code;
 };
